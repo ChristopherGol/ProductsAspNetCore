@@ -31,6 +31,22 @@ namespace ProductsAspNetCore.Controllers
         {
             context.Products.Add(product);
             context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            Product product=context.Products.Find(id);
+
+            return View(product);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Product product)
+        {
+            context.Update(product);
+            context.SaveChanges();
             
             return RedirectToAction("Index");
         }

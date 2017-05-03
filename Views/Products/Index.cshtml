@@ -55,6 +55,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Availability)
             </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edycja</a>
+            </td>
         </tr>
 }
     </tbody>
