@@ -47,7 +47,17 @@ namespace ProductsAspNetCore.Controllers
         {
             context.Update(product);
             context.SaveChanges();
-            
+
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            Product product=context.Products.Find(id);
+
+            context.Remove(product);
+            context.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
