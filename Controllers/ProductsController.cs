@@ -21,5 +21,19 @@ namespace ProductsAspNetCore.Controllers
             return View(context.Products.ToList());
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Product product)
+        {
+            context.Products.Add(product);
+            context.SaveChanges();
+            
+            return RedirectToAction("Index");
+        }
+
     }
 }
